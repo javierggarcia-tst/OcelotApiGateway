@@ -1,0 +1,73 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/ocelot_microservicio1/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44374
+        }
+      ],
+      "UpstreamPathTemplate": "/microservicio1/{everything}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
+      "SwaggerKey": "servicio2"
+    },
+    {
+      "DownstreamPathTemplate": "/ocelot_microservicio1",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44374
+        }
+      ],
+      "UpstreamPathTemplate": "/ocelot_microservicio1",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "servicio2"
+    },
+
+    {
+      "DownstreamPathTemplate": "/ocelot_microservicio2/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44388
+        }
+      ],
+      "UpstreamPathTemplate": "/microservicio/{everything}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
+      "SwaggerKey": "servicio1"
+    }
+  ],
+
+  "SwaggerEndPoints": [
+    {
+      "Key": "servicio1",
+      "Config": [
+        {
+          "Name": "CQRS-DDD API",
+          "Version": "v1",
+          "Url": "https://localhost:44388/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "servicio2",
+      "Config": [
+        {
+          "Name": "CRUD API",
+          "Version": "v1",
+          "Url": "https://localhost:44374/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:44312",
+    "RequestIdKey": "OcRequestId",
+    "AdministrationPath": "/administration"
+  }
+}

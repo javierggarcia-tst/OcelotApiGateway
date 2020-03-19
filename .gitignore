@@ -1,0 +1,9 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/OcelotApiGw/DesignTimeBuild
+/.vs/OcelotApiGw/v16/Server/sqlite3
+/.vs/OcelotApiGw/v16/TestStore/0
+/.vs/OcelotApiGw/v16
+/.vs
